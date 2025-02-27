@@ -1,6 +1,8 @@
 zero short
 few short
-chain of thoughts
+chain of thoughts 
+
+The key difference between Git and GitHub is that Git is a free, open source version control tool that developers install locally on their personal computers, while GitHub is a pay-for-use online service built to run Git in the cloud.
 
 
 pre tuning
@@ -34,3 +36,17 @@ import numpy as np
 import pandas as pd
 impot matplotlib.pyplot as plt
 import seaborn as sns
+
+GitHub:
+created a new data science folder
+commands in gitbash:
+cd Desktop/
+git clone repository link
+git config --global user.email "your email"
+git config ==global user.name "your name"
+cd repository_name
+git add .
+git status
+git commit -m "changes of file added"
+git push
+git pull
