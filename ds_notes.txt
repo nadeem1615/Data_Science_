@@ -41,7 +41,8 @@ GitHub:
 created a new data science folder
 commands in gitbash:
 cd Desktop/
-git clone repository link
+git clone repository link 
+cd folder_name
 git config --global user.email "your email"
 git config ==global user.name "your name"
 cd repository_name
@@ -49,4 +50,29 @@ git add .
 git status
 git commit -m "changes of file added"
 git push
-git pull
+git pull  
+
+SQL:
+Database is a logical,consistent and organized collection of related data that can be easily accessed,managed and updated.The main purpose is to operate large information of data(information)by storing,retrieving and managing data.DBMS is a software which is used to interact with the database.RDBMS organizes data into a table based data structure with a strict,predefined schema required.DBMS is a software that allows user to create  and maintain a database. 
+Database architecture:
+1.1-Tier architecture:Both UI &CPU in one system.(Accessing from the same system.)
+2.2-Tier architecture:The UI will be in one machine.(The UI in one machine and DBMS in another machine)
+3.3-Tier architecture:There will be one UI and multiple machines.(Multiple UI,Multiple DBMS,Multiple systems)
+
+SQL COMMANDS:
+1.DDL-Data Defintion Language(Create,Alter,Drop,Truncate)
+2.DML-Data Manipulation Language(Insert,Update,Delete)
+3.DCL-Data Control Language(Grant,Revoke)
+4.TCL-Transaction Control Language(Commit,Rollback)
+5.DQL-Data Query Language(Select)
+
+
+1.\L-TO VIEW A DATABASE
+2.\dt-to view a table in a database
+3.create database database_name
+4.\d-to display a table
+5.\c-to connect a database to a table
+6.create table table_name(var_name_1 var_type,var_name_2,var_type);
+7.insert into table_name values(arg_1,arg_2);
+8.select * from table_name;-to view the data inserted in the table
+9.alter table table_name add var_name_3 var_type;
