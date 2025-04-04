@@ -76,7 +76,53 @@ SQL COMMANDS:
 7.insert into table_name values(arg_1,arg_2);
 8.select * from table_name;-to view the data inserted in the table
 9.alter table table_name add var_name_3 var_type;
+10.ALTER TABLE Table_name DROP COLUMN column_name;
+11.UPDATE table_name SET Column_name WHERE unique key value;
+12.select * from table_name ORDER BY column_name (or) desc;
+13.SELECT column_name(s) FROM table_name WHERE column_name IN (value1, value2, ...);
+14.SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;
+
+Aggregate functions:
+
+sum()
+
+AVG()
+
+Min()
+
+Max()
+
+Count()
 
 Join:
 Syntax:
 Select common_column_name from table_1 Inner join table_2 on table_1.common_column_name=table2.common_column_name
+
+Joins:
+
+1.Inner Join
+
+2.Outer Join- 1.left outer join
+
+               2.right outer join
+
+3.Self Join
+
+
+select (emp_id,dep,sal),RANK() OVER(PARTITION BY dep ORDER BY sal DESC) AS rank
+FROM aids;-Rank query
+
+select (emp_id,dep,sal),DENSE_RANK() OVER(PARTITION BY dep ORDER BY sal DESC) AS denserank
+FROM aids;=Dense rank query
+
+select (emp_id,dep,sal),row_number() OVER(PARTITION BY dep ORDER BY sal DESC) AS rownum
+FROM aids;-
+
+The reason why we use postgre_sql over MySQL is that we can store all types of data,and it has higher accessibility.
+
+Web Scraping:
+
+To extract data from websites.
+Beautiful shape-a library in python(illegal tool)(static webs)
+Selenium-for dynamic websites.(illegal tool)
+API-legal tool(much faster than the other two)
