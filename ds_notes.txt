@@ -22,7 +22,7 @@ Types of algorithms:
 4.Semi-supervised learning
 
 supervised learning:
-types
+types:
 linear 
 logistic
 support vector
@@ -126,3 +126,30 @@ To extract data from websites.
 Beautiful shape-a library in python(illegal tool)(static webs)
 Selenium-for dynamic websites.(illegal tool)
 API-legal tool(much faster than the other two)
+To generate Youtube API key(google developer console)
+Google Youtube API documentation
+To Scrap channel statistics from Youtube
+Analyse and visualise the Youtube channel
+Scrap video details for a youtube channel(task)
+Scrap using beautiful soup and selenium(task)
+
+Linear Regression:(Formula)
+1/1-e^-z
+
+Outlayers-Unstructured data(data that exists beyond a certain range)
+To make it a structured data,we use mean,median and mode.
+
+Correlation analysis-Feature Selection:
+This would check the input and the output which is influenced more upon by each other.We use the highly influenced element.
+
+Input-Independent parameter
+Output=Dependent parameter
+
+Data Scaling:
+
+To arrange the data all at once
+1.Standard Scaling 
+2.Minmax Scaling(-1 to 1)
+3.Robust Scaling
+
+This all comes under preprocessing.(scaling,correlation etc)
