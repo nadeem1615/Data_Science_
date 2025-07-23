@@ -1,5 +1,5 @@
-zero short
-few short
+zero shot
+few shot
 chain of thoughts 
 
 The key difference between Git and GitHub is that Git is a free, open source version control tool that developers install locally on their personal computers, while GitHub is a pay-for-use online service built to run Git in the cloud.
@@ -7,6 +7,21 @@ The key difference between Git and GitHub is that Git is a free, open source ver
 
 pre tuning
 fine tuning
+
+Clustering is a technique used to group similar data points together.
+Outlayers- a data which is unique or beyond a certain range.
+
+Machine Learning Life Cycle:
+1.Problem Definition and Identification
+2.Data Collection
+3.Data Preprocessing, Cleaning(Outlayers,handling missing values)
+4.Exploraratory Data Analysis
+5. Feature Selection
+6.Data Scaling and Normalization
+7. Model Building
+8. Model Testing
+9. model  validation
+10. accuracy  metrics
 
 process:
 1.Data collection and storage
@@ -16,21 +31,637 @@ process:
 5.Data organization
 
 Types of algorithms:(ML models)
-1.Supervised learning
-2.Unsupervised learning(unlabelled data,we do not train this model)
+1.Supervised learning(to determine the relationship between two variables)
+2.Unsupervised learning(unlabelled data, we do not train this model)
 3.Reinforcement learning
 4.Semi-supervised learning
 
-supervised learning:
-types:
-linear 
-logistic
-support vector
-k nearest
-decision tree
-random forest technique
+accuracy of the model prediction - mean squared error(MSE) formula: 1/n summation(yi-yi^)^2
+residual=yactual-ypredicted
+types of errors: mse,mae,rmse,r^2
+
+In Linear Regression, we use several evaluation metrics to assess how well the model fits the data. These metrics help measure the accuracy, error, and predictive power of the regression model.
+
+Here are the main evaluation metrics for Linear Regression:
+
+1. Mean Absolute Error (MAE)
+Definition: The average of the absolute differences between actual and predicted values.
+
+Formula:
+
+𝑀
+𝐴
+𝐸
+=
+1
+𝑛
+∑
+𝑖
+=
+1
+𝑛
+∣
+𝑦
+𝑖
+−
+𝑦
+^
+𝑖
+∣
+MAE= 
+n
+1
+​
+  
+i=1
+∑
+n
+​
+ ∣y 
+i
+​
+ − 
+y
+^
+​
+  
+i
+​
+ ∣
+Interpretation: Easy to understand. Lower is better. Does not penalize large errors as strongly as other metrics.
+
+2. Mean Squared Error (MSE)
+Definition: The average of the squared differences between actual and predicted values.
+
+Formula:
+
+𝑀
+𝑆
+𝐸
+=
+1
+𝑛
+∑
+𝑖
+=
+1
+𝑛
+(
+𝑦
+𝑖
+−
+𝑦
+^
+𝑖
+)
+2
+MSE= 
+n
+1
+​
+  
+i=1
+∑
+n
+​
+ (y 
+i
+​
+ − 
+y
+^
+​
+  
+i
+​
+ ) 
+2
+ 
+Interpretation: Punishes larger errors more due to squaring. Good for highlighting large deviations.
+
+3. Root Mean Squared Error (RMSE)
+Definition: Square root of the MSE. It gives error in the same units as the target variable.
+
+Formula:
+
+𝑅
+𝑀
+𝑆
+𝐸
+=
+𝑀
+𝑆
+𝐸
+RMSE= 
+MSE
+​
+ 
+Interpretation: More interpretable than MSE. Sensitive to outliers.
+
+4. R-squared (R²) – Coefficient of Determination
+Definition: Represents the proportion of variance in the dependent variable that is predictable from the independent variable(s).
+
+Formula:
+
+𝑅
+2
+=
+1
+−
+𝑆
+𝑆
+res
+𝑆
+𝑆
+tot
+R 
+2
+ =1− 
+SS 
+tot
+​
+ 
+SS 
+res
+​
+ 
+​
+ 
+where:
+𝑆
+𝑆
+res
+=
+∑
+(
+𝑦
+𝑖
+−
+𝑦
+^
+𝑖
+)
+2
+SS 
+res
+​
+ =∑(y 
+i
+​
+ − 
+y
+^
+​
+  
+i
+​
+ ) 
+2
+  (Residual Sum of Squares)
+𝑆
+𝑆
+tot
+=
+∑
+(
+𝑦
+𝑖
+−
+𝑦
+ˉ
+)
+2
+SS 
+tot
+​
+ =∑(y 
+i
+​
+ − 
+y
+ˉ
+​
+ ) 
+2
+  (Total Sum of Squares)
+
+Range: 0 to 1 (or negative if the model is worse than a horizontal line)
+
+Interpretation:
+
+R² = 1 → perfect prediction.
+
+R² = 0 → model does no better than the mean.
+
+Negative R² → model performs worse than just predicting the mean.
+
+5. Adjusted R-squared
+Definition: Modified version of R² that adjusts for the number of predictors in the model.
+
+Formula:
+
+Adjusted 
+𝑅
+2
+=
+1
+−
+(
+(
+1
+−
+𝑅
+2
+)
+(
+𝑛
+−
+1
+)
+𝑛
+−
+𝑘
+−
+1
+)
+Adjusted R 
+2
+ =1−( 
+n−k−1
+(1−R 
+2
+ )(n−1)
+​
+ )
+where:
+
+𝑛
+n: number of observations
+
+𝑘
+k: number of predictors
+
+Interpretation: Penalizes unnecessary predictors. Useful for comparing models with different numbers of predictors.
+
+Summary Table:
+Metric	Penalizes Outliers	Interpretable Units	Ideal Value
+MAE	❌	✅	0
+MSE	✅	❌	0
+RMSE	✅	✅	0
+R²	❌	No units	1
+Adjusted R²	❌	No units	1
 
 
+Regularization techniques for linear models are methods used to prevent overfitting by penalizing large coefficients in the regression model. These techniques add a penalty term to the loss function, encouraging the model to keep weights small, which improves generalization.
+
+Here are the main regularization techniques:
+
+🔧 1. Ridge Regression (L2 Regularization)
+Penalty: Adds the sum of squares of coefficients to the loss function.
+
+Loss Function:
+
+Loss
+=
+RSS
++
+𝜆
+∑
+𝑗
+=
+1
+𝑝
+𝛽
+𝑗
+2
+Loss=RSS+λ 
+j=1
+∑
+p
+​
+ β 
+j
+2
+​
+ 
+Effect:
+
+Shrinks coefficients towards zero but never makes them exactly zero.
+
+Keeps all features but reduces their influence.
+
+Use Case: When all features are relevant and multicollinearity is present.
+
+🪓 2. Lasso Regression (L1 Regularization)
+Penalty: Adds the sum of absolute values of coefficients.
+
+Loss Function:
+
+Loss
+=
+RSS
++
+𝜆
+∑
+𝑗
+=
+1
+𝑝
+∣
+𝛽
+𝑗
+∣
+Loss=RSS+λ 
+j=1
+∑
+p
+​
+ ∣β 
+j
+​
+ ∣
+Effect:
+
+Can shrink some coefficients exactly to zero → acts as feature selection.
+
+Use Case: When some features are irrelevant and you want a sparse model.
+
+⚖️ 3. Elastic Net (L1 + L2 Regularization)
+Penalty: Combines both L1 and L2 penalties.
+
+Loss Function:
+
+Loss
+=
+RSS
++
+𝜆
+1
+∑
+∣
+𝛽
+𝑗
+∣
++
+𝜆
+2
+∑
+𝛽
+𝑗
+2
+Loss=RSS+λ 
+1
+​
+ ∑∣β 
+j
+​
+ ∣+λ 
+2
+​
+ ∑β 
+j
+2
+​
+ 
+Effect:
+
+Benefits from Lasso’s sparsity and Ridge’s stability.
+
+Handles high-dimensional data well (more features than observations).
+
+Use Case: When you want a balance between feature selection and coefficient shrinkage.
+
+🧠 Why Regularization Works:
+Prevents overfitting on training data by reducing model complexity.
+
+Improves generalization to unseen data.
+
+Especially useful when:
+
+Data has many features (high dimensionality).
+
+Features are correlated (multicollinearity).
+
+Training data is limited.
+
+🔍 Comparison:
+Method	Penalty Type	Coefficients Can Be 0?	Use Case
+Ridge	L2	❌ No	Keep all features, shrink influence
+Lasso	L1	✅ Yes	Feature selection
+Elastic Net	L1 + L2	✅ Yes	Combine sparsity + stability
+
+
+
+Regression:
+When we want to predict a continuous numeric target variable for a given input variable.
+
+Classification:
+When we want to predict a discrete classical variable also called a class to a data point.
+Naive Bayes Classifier(spam classifier, text messages classifier)
+
+supervised learning:(Labelled data)
+Types:
+1.linear regression(mother of all machine learning algorithms):
+
+trying to determine a linear relationship between two variables namely the input and the output.
+y=mx + c (SLope change-steepness change)
+y-Dependent variable, m-slope, x-independent variable, c-intercept.
+y^= theta0+theta1
+
+2.logistic(used for classification):(Categorical variables)
+if we have number of features and we are trying to predict a target class.
+
+3.support vector(to draw a decision boundary between data points that separates data points of the training set as well as possible):
+we use kernel functions.
+
+4.K nearest neighbour:(Lazy algorithm)
+First, we have to choose a k-value. the formula of choosing a k-value is k=root of n(n-number of instances),value of k will always be odd value.
+there are 2 formulas to find the distance of k:
+Euclididan distance, Manhattan distance
+
+5.Decision tree(basically a series of yes-no questions that allow us to partition dataset in several dimensions)
+
+6.Random forest technique(multiple decision trees)
+Ensembled(bagging and boosting)
+
+Bagging:
+we create multiple models at once and all the operations execute parallelly.
+
+Boosting(Adaboost,Gradient boosting,XGBoost)-sequential.
+a form of ensembled algorithm, it can handle heavy datasets and messy(scrambled)datasets, since it gives more importance to false predictions.
+
+Adaboost - first, it will split the dataset, and it will give more weightage to false predictions,and divide the dataset based on that.(Incremental weightage concept)
+
+Gradient boost-it will calculate the loss function, until the loss function becomes a minimal value,it will keep on executing,and this is better compared to adaboost.(Optimize the loss function from the previous learner)-regularize the loss function.
+
+Extreme gradient boosting-it keeps on doing the same tasks that gradient boost does.
+distributed computing, parallelization, cache optimization
+
+Light boosting-which leaf node has the false predictions ,it will divide or level based on that.
+
+Catboost -Categorical boosting.
+
+another form of ensembled algorithm is bagging where we train multiple models on the different subset of training data using bootstrapping. A famous version of this idea is called a random forest technique where many decision trees vote on the classification of your data by majority vote of the different trees in the random forest, can be used for classification and regression. The randomness comes from randomly excluding features for the different trees in the forest which prevents overfitting and makes it much more robust because it removes correlation between the trees.
+
+
+What is Ensembling in Machine Learning?
+Ensembling is a technique that combines multiple models (called base learners) to produce a stronger predictive model.
+
+The idea is: A group of weak models can come together to form a strong model.
+
+🧰 Why Use Ensembling?
+Reduces overfitting or underfitting (depending on the method).
+
+Increases accuracy and robustness.
+
+Balances bias and variance trade-off.
+
+Often outperforms a single model.
+
+🌳 Types of Ensemble Techniques
+1. ✅ Bagging (Bootstrap Aggregating)
+Trains multiple models independently on different subsets of the training data (created using bootstrapping — random sampling with replacement).
+
+Combines their outputs by averaging (regression) or voting (classification).
+
+📌 Example: Random Forest
+Uses multiple decision trees.
+
+Each tree gets a random subset of features + data.
+
+Final prediction is majority vote (classification) or average (regression).
+
+2. ✅ Boosting
+Trains models sequentially, where each new model focuses on the mistakes made by the previous one.
+
+Final prediction is a weighted combination of all models.
+
+📌 Examples:
+AdaBoost (Adaptive Boosting)
+
+Gradient Boosting
+
+XGBoost, LightGBM, CatBoost (optimized versions of gradient boosting)
+
+3. ✅ Stacking (Stacked Generalization)
+Trains multiple diverse models (e.g., linear regression, SVM, decision tree).
+
+Then trains a meta-model (e.g., logistic regression) on their predictions.
+
+🏗️ Structure:
+Level-0 models: Base learners.
+
+Level-1 model: Meta learner.
+
+📊 Comparison of Techniques
+Technique	Base Models Trained	How It Works	Best For
+Bagging	In parallel	Averages predictions	Reducing variance (overfitting)
+Boosting	Sequentially	Learns from errors	Reducing bias (underfitting)
+Stacking	Parallel + meta	Meta-model combines outputs	Flexible and powerful combos
+
+📦 Real-World Use Cases
+Credit scoring systems
+
+Kaggle competitions
+
+Image and text classification
+
+Forecasting sales, stock, weather
+
+Fraud detection
+
+💡 Summary
+Term	Idea	Famous Example
+Bagging	Multiple models in parallel	Random Forest
+Boosting	Sequential improvement	XGBoost, LightGBM
+Stacking	Models on top of models	Stacked Regression
+
+What is Tuning in Machine Learning?
+Tuning (short for hyperparameter tuning) is the process of optimizing the hyperparameters of a machine learning model to improve its performance.
+
+🔍 What's the Difference?
+Parameters: Learned from the data during training (e.g., weights in linear regression).
+
+Hyperparameters: Set before training begins. They control the learning process (e.g., learning rate, tree depth, number of neighbors).
+
+📦 Why is Tuning Important?
+It improves model accuracy and generalization.
+
+Prevents underfitting or overfitting.
+
+Helps you find the best version of your model.
+
+🔢 Examples of Hyperparameters to Tune:
+🔸 For Linear Models:
+alpha (regularization strength in Ridge/Lasso)
+
+fit_intercept (whether to include bias term)
+
+solver (algorithm to use in optimization)
+
+🔸 For Decision Trees:
+max_depth
+
+min_samples_split
+
+min_samples_leaf
+
+🔸 For Random Forest / XGBoost:
+n_estimators (number of trees)
+
+max_depth
+
+learning_rate (for boosting)
+
+subsample, colsample_bytree
+
+🧪 Tuning Methods
+✅ 1. Grid Search
+Tests all combinations of specified hyperparameter values.
+
+Exhaustive but computationally expensive.
+
+python
+Copy
+Edit
+from sklearn.model_selection import GridSearchCV
+param_grid = {'alpha': [0.01, 0.1, 1, 10]}
+grid = GridSearchCV(Ridge(), param_grid, cv=5)
+grid.fit(X_train, y_train)
+✅ 2. Randomized Search
+Tests random combinations of hyperparameters.
+
+More efficient for large search spaces.
+
+python
+Copy
+Edit
+from sklearn.model_selection import RandomizedSearchCV
+param_dist = {'alpha': [0.01, 0.1, 1, 10]}
+random = RandomizedSearchCV(Ridge(), param_dist, n_iter=4, cv=5)
+random.fit(X_train, y_train)
+✅ 3. Bayesian Optimization (advanced)
+Learns which hyperparameters are promising based on previous trials.
+
+Examples: Optuna, Hyperopt, BayesSearchCV
+
+🧠 Tuning Best Practices
+Use cross-validation to evaluate model on unseen data.
+
+Tune on a validation set, not the test set.
+
+Start small, then expand grid/ranges.
+
+Monitor for overfitting on validation during tuning.
+
+🎯 Goal of Tuning:
+Find the hyperparameter values that give the best performance (lowest error or highest accuracy) on validation data.
+
+
+We check our model if the model works properly by two techniques:
+1.Bias(high bias-underfitting)-we come across a error, when we divide the heavy dataset into a small dataset. hence it ignores the important pattern, hence underfitting(linear regression-high bias, low variance->underfit)
+2.Variance(high variance-overfitting)-error due to model sensitivity to small fluctuation into a model data.(decision tree-low bias,high variance->overfit)
+The ideal model should be of low bias and variance.(Random forest-low bias and variance->optimal model)(to find the distance between the data points and the centroid)
 
 import numpy as np
 import pandas as pd
@@ -50,7 +681,20 @@ git add .
 git status
 git commit -m "changes of file added"
 git push
-git pull  
+git pull
+
+
+Task	Git Command Example
+Start a repo	git init
+Copy a repo	git clone <url>
+Check status	git status
+Stage changes	git add <file>
+Commit changes	git commit -m "message"
+Push to GitHub	git push
+Get latest changes	git pull
+Create branch	git checkout -b <branch>
+Merge branch	git merge <branch>  
+
 
 SQL:
 Database is a logical,consistent and organized collection of related data that can be easily accessed,managed and updated.The main purpose is to operate large information of data(information)by storing,retrieving and managing data.DBMS is a software which is used to interact with the database.RDBMS organizes data into a table based data structure with a strict,predefined schema required.DBMS is a software that allows user to create  and maintain a database. 
@@ -58,6 +702,7 @@ Database architecture:
 1.1-Tier architecture:Both UI &CPU in one system.(Accessing from the same system.)
 2.2-Tier architecture:The UI will be in one machine.(The UI in one machine and DBMS in another machine)
 3.3-Tier architecture:There will be one UI and multiple machines.(Multiple UI,Multiple DBMS,Multiple systems)
+
 
 SQL COMMANDS:
 1.DDL-Data Defintion Language(Create,Alter,Drop,Truncate)
@@ -136,29 +781,85 @@ Scrap using beautiful soup and selenium(task)
 Linear Regression:(Formula)
 1/1-e^-z
 
-Outlayers-Unstructured data(data that exists beyond a certain range)
-To make it a structured data,we use mean,median and mode.
+Outlayers -Unstructured data(data that exists beyond a certain range)
+To make it a structured data, we use mean, median and mode.
 
 Correlation analysis-Feature Selection:
-This would check the input and the output which is influenced more upon by each other.We use the highly influenced element.
+This would check the input and the output which is influenced more upon by each other. We use the highly influenced element.
 
 Input-Independent parameter
 Output=Dependent parameter
 
 Data Scaling:
-
 To arrange the data all at once.
 1.Standard Scaling 
 2.Minmax Scaling(-1 to 1)
 3.Robust Scaling
 
-This all comes under preprocessing.(scaling,correlation etc)
+This all comes under preprocessing.(scaling, correlation etc)
 
-Unsupervised learning:(clustering)
-1.Hierachical
-2.k-means
+Unsupervised learning:(clustering)-to divide into segments
+
+1.Hierachical-tree like structure(max, min, ward)->Dendrogram
+i)Aggleromative:
+a hierarchical clustering method that works from the bottom up, starting with each data point as its own cluster and gradually merging them into larger clusters based on their similarity
+ii)Divisive
+
+2.k-means (Elbow method):
+used to group data points into a cluster based on their similarity.
 3.DBSCAN 
 4.Principle compound analysis.
 
 Semi-supervised learning:
-Semi-supervised learning utilizes both labeled and unlabeled data to train models, offering a balance between supervised and unsupervised learning techniques. Common approaches include self-training, co-training, and graph-based methods. 
+Semi-supervised learning utilizes both labeled and unlabeled data to train models, offering a balance between supervised and unsupervised learning techniques. Common approaches include self-training, co-training, and graph-based methods.
+
+Hyper parameter tuning;
+Tuning the parameter before the training period (tuning-adjusting)
+Types:
+1.Grid Search
+2.Random Search
+3.Ayesian Optimization
+
+Optimization Techniques:
+1.Particles Swamp
+2.Differential Evaluation
+3.Genetic Algorithm
+
+Kernel:(For Support vector)-Epsilon insensitive tube
+To give flexibility to our epsilon insensitive tube, to catch data points.
+Types:
+1.Linear Kernel
+2.Polynomial Kernel
+3.Radial Basis Kernel
+4.Sigmoidal kernel
+
+
+3 Types of AI tools
+1.Standalone AI tools:
+AI powered software designed to work independently with minimal setup 
+Got,Gemini, perplexity etc
+They can be accessed directly through their websites 
+
+2.Tools with Integrated AI Features:
+Built-in AI enhancements within a particular piece of software 
+Eg:Google docs, sheets 
+
+3.Custom AI solution:
+An application that's tailor-made to solve a specific problem
+
+An abstract data type is an abstraction of a data STRUCTURE which provides only the interface to which a data structure must adhere to.
+The interface does not give any specific details about how something should be implemented or in what programming language.
+ 
+Abstraction (ADT)
+Implementation (DS)
+List
+Dynamic Array Linked List
+Queue
+Linked List based Queue Array based Queue
+Stack based Queue
+Map
+Tree Map Hash Map / Hash Table
+Vehicle
+Golf Cart
+Bicycle
+Smart Car	

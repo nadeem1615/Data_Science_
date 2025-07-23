@@ -1,0 +1,30 @@
+Introduction to AI Agents:
+an AI agent is described as a system designed to complete tasks requested by users
+ The course begins by defining what AI agents are and outlining their core components: a large language model (LLM) for reasoning, memory (short-term context and long-term data), and tools (services, APIs, functions). Reasoning involves identifying tasks, creating plans, and performing actions. A simple real-world analogy used is brushing your teeth.
+•
+Agentic Frameworks:
+ This topic covers tools that provide more control over task management for AI agents, including contextual understanding, agent collaboration, and performance observation/evaluation. The sources discuss different agentic frameworks and services, including the Azure AI Agent Service (for single agents), Semantic Kernel (enterprise-focused, supports C#, Java, Python), and Autogen (research-focused, for experimentation). Code samples are provided for Semantic Kernel, Autogen, and Azure AI Agent Service.
+•
+Principles for Good AI Agent:
+ Design Key principles discussed are Space (the environment the agent works in, focusing on connecting events, people, knowledge, and discoverability), Time (how the agent operates over time, enabling improvement through connecting to past events and reflection), and Core (embracing uncertainty, enabling trust and transparency with users through visible controls and feedback). Applying these principles includes providing clear instructions on capabilities and limitations.
+•
+The Tool Use Design Pattern:
+ This pattern allows LLMs to interact with external tools like calculators, APIs, or functions to complete tasks that require real-time data or specific actions outside the LLM's training data. Use cases include querying databases, interacting with CRM systems, and automating workflows by combining tools. Considerations like security and error handling are mentioned. The pattern can involve different function behaviors, such as auto or required calls. LLMs can interpret natural language queries to determine which tools to call, even handling nuances like filtering destinations not in Europe without needing specific functions for that.
+•
+Agentic Retrieval Augmented Generation (RAG):
+ This is an enhancement to basic RAG, where an agent analyzes a user's query to create a plan using data sources and tools. It can verify if retrieved information is sufficient and repeat the process if necessary. Agentic RAG can maintain long-term memory of past attempts to improve over time. It combines retrieval from databases (like Azure AI Search) with function calls to answer complex queries.
+•
+Building Trustworthy AI Agents:
+ This lesson introduces the System Message Framework as a way to set clear and specific instructions for AI agents in a scalable and repeatable manner, even using one LLM to generate system messages for others. It emphasizes that prompt building is an iterative process. The concept of a Human in the Loop architecture is also mentioned, where a human provides approval or intervention in multi-agent cooperation.
+•
+The Planning Design Pattern:
+ This pattern focuses on having an AI agent list the subtasks required to complete a more complex task. This is particularly impactful when working with multiple agents, where subtasks can be completed by different agents or processes. Structuring the agent's output (e.g., using Pydantic for validation) allows other agents or systems to easily process the information. Agent instructions can include a list of available agents to guide the planning process.
+•
+The Multi-Agent Design Pattern:
+ This involves multiple AI agents working together towards a common goal. Different patterns for agent collaboration are discussed: Group chat (messages broadcast, a manager routes tasks), Handoff (agents complete sequential steps), and Collaborative filtering (agents act as specialists providing different perspectives). The pattern can include a termination function to end interactions based on defined criteria. A reviewer/checker pattern is demonstrated in code using two agents.
+•
+Metacognition in AI Agents:
+ This concept, defined as "thinking about thinking," applies to agents' ability to use data and analysis to identify errors, reflect on decisions, make improvements over time, and adapt to changing environments. It involves designing systems to gather, store, and retrieve user preferences or feedback for future interactions. Code examples show mimicking metacognition by maintaining customer preferences in context and reflecting on past interactions to improve the user experience.
+•
+Deploying AI Agents to Production:
+ The final lesson covers the process of getting agents ready for users. A crucial aspect is evaluations, which should be set up at each step of the system's workflow, from the initial LLM request and intent identification to tool responses and collecting user feedback. Handling errors and downtime from external services (e.g., using backup functions) is also a key consideration for production systems. The lesson also briefly mentions managing cost, though details are limited in the provided text
